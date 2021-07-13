@@ -14,6 +14,7 @@ const HomeView = props => {
             <button onClick={() => goTo(PAGE1)}>Dashboard</button>
         </div>
     )
+
 }
 
 HomeView.propTypes = {
