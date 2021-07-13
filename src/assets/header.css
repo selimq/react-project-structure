@@ -1,0 +1,44 @@
+.header {
+  background-color: #282c34;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(13px + 2vmin);
+  color: white;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header-nav li {
+  padding: 10px;
+  margin: 25px;
+
+}
+ul{
+  list-style-type: none;
+}
+
+.header-nav li a {
+  text-decoration: none;
+  color: white;
+
+}
+
+.header-nav li.active {
+  background-color: #626c80;
+}
+
+.header-nav li:hover {
+  background-color: #626c80;
+  cursor: pointer;
+}
+
+.header-content {
+  padding: 10px;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
+}

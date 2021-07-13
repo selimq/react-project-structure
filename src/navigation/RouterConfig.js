@@ -1,17 +1,14 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom";
-import { ROOT, PAGE1 } from './CONSTANTS'
-import Home from '../pages/Home'
-import Page1 from '../pages/Page1'
 import NotFound from './NotFound'
-
+import pages from '../pages/index'
 const RouterConfig = () => {
     return (
         <div>
             <Switch>
-                <Route exact path={ROOT} component={Home} />
-                <Route exact path={PAGE1} component={Page1} />
-
+                {pages.map((module) => (
+                    <Route exact {...module.routeProps} key={module.name} />
+                ))}
                 <Route path="*">
                     <NotFound />
                 </Route>
