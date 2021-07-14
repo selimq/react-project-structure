@@ -1,9 +1,9 @@
-import Home from './Home'
 import Page1 from './Page1'
+import Products from './Products'
 
 const Pages = [
-    Home,
-    Page1
+    Page1,
+    Products,
 ]
 
 export default Pages

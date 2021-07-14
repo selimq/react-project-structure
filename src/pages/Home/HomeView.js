@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
-
-const HomeView = props => {
+import { MenuList, Paper, MenuItem } from '@material-ui/core'
+import '../../assets/home.css'
+const HomeView = (props) => {
 
     return (
-        <div>
-            <h1 variant="h2">{props.title}</h1>
+        <div className="home" >
+            <Paper elevation={4} className="home-paper">
+                <MenuList>
+                    <MenuItem>Profile</MenuItem>
+                    <MenuItem>My account</MenuItem>
+                    <MenuItem>Logout</MenuItem>
+                </MenuList>
+            </Paper>
         </div>
     )
 

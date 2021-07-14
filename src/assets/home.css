@@ -1,0 +1,7 @@
+.home{
+  display: flex;
+}
+.home-paper{
+    margin-left: 40px;
+    margin-top: 40px;
+}
