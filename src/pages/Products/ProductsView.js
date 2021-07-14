@@ -1,20 +1,28 @@
-import { ListItem, ListItemIcon, ListItemText, List } from '@material-ui/core';
+import {
+    ListItem, ListItemIcon, ListItemText, List, Paper, Grid
+} from '@material-ui/core';
 import React from 'react'
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import '../../assets/products.css'
-import { useRouteMatch, Link, Switch, Route, useParams } from 'react-router-dom';
+import { useRouteMatch, Link, Switch, Route } from 'react-router-dom';
+import products from './products'
+import Product from './components/Product'
 const ProductsView = () => {
     let { path, url } = useRouteMatch();
+
+
 
     return (
         <div className="main">
 
-            <List className="main-list" >
-                {["a", "b", "c"].map((route, index) => (
-                    <Link to={`${url}/${route}`}>
-                        <ListItem button key={route} >
-                            <ListItemIcon> <HourglassEmptyIcon /></ListItemIcon>
-                            <ListItemText primary={route} />
+            <List className="main-list"  >
+                {[{ route: "A Category", index: 0 },
+                { route: "A Category", index: 1 },
+                { route: "A Category", index: 2 }].map((route) => (
+                    <Link to={`${url}/${route}`} className="link" key={route.index}>
+                        <ListItem button key={route.route} >
+                            <ListItemIcon> <KeyboardArrowRightIcon color="secondary" /></ListItemIcon>
+                            <ListItemText className="link-text" primary={route.route} />
                         </ListItem>
                     </Link>
                 ))}
@@ -22,12 +30,31 @@ const ProductsView = () => {
 
             <Switch>
                 <Route exact path={path}>
-                    <h3> Main </h3>
+                    <Grid container >
+                        <Grid item xs={12}>
+                            <Grid container justifyContent="center" spacing={7}>
+                                {products.map((value) => (
+                                    <Grid key={value.id} item>
+                                        <Link to={`${url}/${value.id}`} onClick={() => {
+                                            console.log(value.photoUrl)
+                                        }}>
+                                            <Paper elevation={10} className="main-paper" >
+                                                <img src={value.photoUrl} alt={value.name} className="my-img" />
+                                                <h3>{value.name}</h3>
+                                            </Paper>
+                                        </Link>
+
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
 
 
 
                 </Route>
-                <Route path={`${path}/:topic`} component={Topic} />
+                <Route path={`${path}/:id`} component={Product} />
 
             </Switch>
 
@@ -35,17 +62,5 @@ const ProductsView = () => {
     )
 }
 
-function Topic() {
-    // The <Route> that rendered this component has a
-    // path of `/topics/:topicId`. The `:topicId` portion
-    // of the URL indicates a placeholder that we can
-    // get from `useParams()`.
-    let { topic } = useParams();
 
-    return (
-        <div>
-            <h3>{topic}</h3>
-        </div>
-    );
-}
 export default ProductsView

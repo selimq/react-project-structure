@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import '../../assets/header.css'
-import logo from '../../logo.svg'
 import pages from '../../pages/index'
 import { Link } from 'react-router-dom'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const Header = () => {
     const [currentTab, setCurrentTab] = useState('')
@@ -11,7 +11,6 @@ const Header = () => {
         <header className="header" >
 
 
-            < img src={logo} className="header-logo" alt="logo" />
 
 
             <ul className="header-nav">
@@ -36,7 +35,9 @@ const Header = () => {
                         </Link>
                     </li>
                 ))}
+
             </ul>
+            <ShoppingCartIcon className=" absolute right-10"></ShoppingCartIcon>
         </header>
 
     )

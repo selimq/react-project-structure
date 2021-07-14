@@ -8,7 +8,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-import '../../assets/page1view.css'
 import { Link } from 'react-router-dom';
 import routes from './navigation/routes'
 const Page1View = props => {

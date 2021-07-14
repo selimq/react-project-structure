@@ -6,6 +6,8 @@
   justify-content: center;
   font-size: calc(13px + 2vmin);
   color: white;
+  margin-bottom: 40px;
+
 }
 
 .header-nav {
