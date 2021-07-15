@@ -1,5 +1,6 @@
 import products from "../products";
-import Paper from "@material-ui/core/Paper"; import React from 'react';
+import Paper from "@material-ui/core/Paper";
+import { useState, forwardRef } from 'react';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { useParams } from "react-router-dom";
@@ -11,23 +12,26 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import DoneIcon from '@material-ui/icons/Done';
+import { Link } from 'react-router-dom';
+import { CART } from '../../../navigation/CONSTANTS';
 
 
-
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 
 export default function Product() {
-    // The <Route> that rendered this component has a
-    // path of `/topics/:topicId`. The `:topicId` portion
-    // of the URL indicates a placeholder that we can
-    // get from `useParams()`.
-    const [open, setOpen] = React.useState(false);
 
+    let { id } = useParams();
+    const flower = products[id];
+
+    const [open, setOpen] = useState(false);
+    const [flowerStock, setFlowerStock] = useState(flower.stock)
     const handleClickOpen = () => {
         setOpen(true);
+        setFlowerStock((flowerStock) => flowerStock - 1)
+
     };
 
     const handleClose = () => {
@@ -35,8 +39,6 @@ export default function Product() {
     };
 
 
-    let { id } = useParams();
-    const flower = products[id];
 
     return (
         <div>
@@ -46,7 +48,8 @@ export default function Product() {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
                         <h3 className="lg:text-2xl  sm:text-l py-2 text-red-600 ">
-                            {flower.price}
+                            {flower.price}<br></br>
+                            Stock : {flowerStock}
                         </h3>
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -64,6 +67,9 @@ export default function Product() {
                 </Grid>
                 <p className="m-auto text-justify w-4/7 p-8">{flower.detail}</p>
             </Paper>
+
+
+            {/* alert dialog */}
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -77,7 +83,7 @@ export default function Product() {
                     <DialogContentText >
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={9}>
-                                <h1 className="text-xl text-black">Sepete eklendi <br /> <br />(şaka)</h1>
+                                <h1 className="text-xl text-black">Sepete eklendi <br /> <br />--eklenmedi</h1>
                             </Grid>
                             <Grid item xs={12} sm={3}>
                                 <DoneIcon fontSize="large" className="text-green-500"></DoneIcon>
@@ -93,9 +99,12 @@ export default function Product() {
                         Kapat
                     </Button>
                     <p className="p-1"></p>
-                    <Button onClick={handleClose} color="primary" variant="contained" className="p-2">
-                        Sepete  Git
-                    </Button>
+
+                    <Link to={CART}>
+                        <Button onClick={handleClose} color="primary" variant="contained" className="p-2">
+                            Sepete  Git
+                        </Button>
+                    </Link>
                     <p className="p-1"></p>
 
 

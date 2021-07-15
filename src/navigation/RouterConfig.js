@@ -9,10 +9,17 @@ const RouterConfig = () => {
     return (
         <div>
             <Switch>
-                <Route exact path='/' key={Home.name} component={Home} />
+
+                <Route exact path={Home.routeProps.path} key={Home.name} component={Home.routeProps.component} />
+                {/* home exact olacağı için ayrı sekilde cagırmak gerekiyor */}
+
                 {pages.map((module) => (
                     <Route {...module.routeProps} key={module.name} />
                 ))}
+
+
+
+
                 <Route path="*">
                     <NotFound />
                 </Route>

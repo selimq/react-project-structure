@@ -1,3 +1,14 @@
 import HomeContainer from "./HomeContainer";
+import { HOME } from "../../navigation/CONSTANTS"
 
-export default HomeContainer
+
+
+const exportedObject = {
+    routeProps: {
+        path: HOME,
+        component: HomeContainer
+    },
+    name: "Home"
+}
+
+export default exportedObject

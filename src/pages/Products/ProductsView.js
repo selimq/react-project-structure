@@ -7,6 +7,8 @@ import '../../assets/products.css'
 import { useRouteMatch, Link, Switch, Route } from 'react-router-dom';
 import products from './products'
 import Product from './components/Product'
+
+
 const ProductsView = () => {
     let { path, url } = useRouteMatch();
 

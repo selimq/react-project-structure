@@ -14,7 +14,7 @@ const Header = () => {
 
 
             <ul className="header-nav">
-                <li>
+                <li className={currentTab === 'home' ? "active" : ""}>
                     <Link to={"/"} onClick={() => setCurrentTab('home')} >
                         Home
                     </Link>
@@ -23,21 +23,30 @@ const Header = () => {
                 </li>
                 {pages.map((module) => (
 
-                    <li
-                        key={module.name}
-                        className={currentTab === module.name ? "active" : ""}
-                    >
-                        <Link
-                            to={module.routeProps.path}
-                            onClick={() => setCurrentTab(module.name)}
+                    module.name !== 'Cart' ?
+
+                        <li
+                            key={module.name}
+                            className={currentTab === module.name ? "active" : ""}
                         >
-                            {module.name}
-                        </Link>
-                    </li>
+                            <Link
+                                to={module.routeProps.path}
+                                onClick={() => setCurrentTab(module.name)}>
+                                {module.name}
+                            </Link>
+                        </li>
+                        :
+
+                        <li className="absolute right-10" >
+                            <Link to={module.routeProps.path} onClick={() => setCurrentTab(module.name)} >
+                                <ShoppingCartIcon ></ShoppingCartIcon>
+                            </Link>
+                        </li>
+
+
                 ))}
 
             </ul>
-            <ShoppingCartIcon className=" absolute right-10"></ShoppingCartIcon>
         </header>
 
     )
