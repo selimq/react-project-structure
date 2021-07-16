@@ -37,7 +37,7 @@ const Header = () => {
                         </li>
                         :
 
-                        <li className="absolute right-10" >
+                        <li className="absolute right-10" key={module.name}>
                             <Link to={module.routeProps.path} onClick={() => setCurrentTab(module.name)} >
                                 <ShoppingCartIcon ></ShoppingCartIcon>
                             </Link>

@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
-    "@material-ui/core": "^4.12.1",
-    "@material-ui/data-grid": "^4.0.0-alpha.33",
+    "@material-ui/core": "4.11.4",
+    "@material-ui/data-grid": "^4.0.0-alpha.32",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -21,7 +21,8 @@
     "eject": "react-scripts eject",
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "server":"json-server --watch inCarts.json  --port 5000"
   },
   "eslintConfig": {
     "extends": [

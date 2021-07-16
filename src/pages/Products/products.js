@@ -12,7 +12,7 @@ const products =
             photoUrl: flower0,
             name: "Beyaz Gül",
             stock: 20,
-            price: "20$",
+            price: 20,
             detail: "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, illum. Numquam eligendi, animi iusto amet fuga exercitationem error architecto facere vero nemo sapiente perspiciatis illum facilis qui dolor mollitia nihil, esse, voluptatem provident porro suscipit eius? Debitis, voluptatem. Commodi ipsam accusamus non, modi soluta eaque dolorem dolor doloribus pariatur numquam exercitationem rem! Reprehenderit repellat, qui adipisci impedit alias nulla excepturi!"
         },
         {
@@ -20,7 +20,7 @@ const products =
             photoUrl: flower1,
             name: "Kırmızı Güller ve Papatya",
             stock: 12,
-            price: "20$",
+            price: 20,
             detail: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, illum. Numquam eligendi, animi iusto amet fuga exercitationem error architecto facere vero nemo sapiente perspiciatis illum facilis qui dolor mollitia nihil, esse, voluptatem provident porro suscipit eius? Debitis, voluptatem. Commodi ipsam accusamus non, modi soluta eaque dolorem dolor doloribus pariatur numquam exercitationem rem! Reprehenderit repellat, qui adipisci impedit alias nulla excepturi!"
 
         }, {
@@ -28,7 +28,7 @@ const products =
             photoUrl: flower2,
             name: "Karışık Güller",
             stock: 8,
-            price: "20$",
+            price: 20,
             detail: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, illum. Numquam eligendi, animi iusto amet fuga exercitationem error architecto facere vero nemo sapiente perspiciatis illum facilis qui dolor mollitia nihil, esse, voluptatem provident porro suscipit eius? Debitis, voluptatem. Commodi ipsam accusamus non, modi soluta eaque dolorem dolor doloribus pariatur numquam exercitationem rem! Reprehenderit repellat, qui adipisci impedit alias nulla excepturi!"
 
         }, {
@@ -36,7 +36,7 @@ const products =
             photoUrl: flower3,
             name: "Kalanchoe ve Lavanta",
             stock: 4,
-            price: "20$",
+            price: 20,
             detail: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, illum. Numquam eligendi, animi iusto amet fuga exercitationem error architecto facere vero nemo sapiente perspiciatis illum facilis qui dolor mollitia nihil, esse, voluptatem provident porro suscipit eius? Debitis, voluptatem. Commodi ipsam accusamus non, modi soluta eaque dolorem dolor doloribus pariatur numquam exercitationem rem! Reprehenderit repellat, qui adipisci impedit alias nulla excepturi!"
 
         }, {
@@ -44,7 +44,7 @@ const products =
             photoUrl: flower4,
             name: "Antoryum Bitkisi",
             stock: 21,
-            price: "20$",
+            price: 20,
             detail: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, illum. Numquam eligendi, animi iusto amet fuga exercitationem error architecto facere vero nemo sapiente perspiciatis illum facilis qui dolor mollitia nihil, esse, voluptatem provident porro suscipit eius? Debitis, voluptatem. Commodi ipsam accusamus non, modi soluta eaque dolorem dolor doloribus pariatur numquam exercitationem rem! Reprehenderit repellat, qui adipisci impedit alias nulla excepturi!"
 
         },

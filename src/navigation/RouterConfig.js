@@ -18,8 +18,6 @@ const RouterConfig = () => {
                 ))}
 
 
-
-
                 <Route path="*">
                     <NotFound />
                 </Route>
