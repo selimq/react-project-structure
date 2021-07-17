@@ -25,14 +25,14 @@ const saveCartItem = async (id, item) => {
   fetch(`http://localhost:5000/inCarts/${id}`)
     .then(handleErrors)
     .then(async (res) => {
-      console.log("Mevcut arttırım yapıldı");
+      console.log("Mevcut, arttırım yapıldı");
       const data = await res.json();
       console.log(data);
       data.quantity += 1;
       await updateCartItem(data.id, data);
     })
     .catch(async (err) => {
-      console.log("Mevcut degil ekleniyor");
+      console.log("Mevcut degil, ekleniyor..");
 
       let addedObject = {
         id: item.id,
@@ -69,9 +69,11 @@ const updateCartItem = async (id, updatedItem) => {
 };
 //delete task
 const deleteCartItem = async (id) => {
-  await fetch(`http://localhost:5000/inCarts/${id}`, {
+  fetch(`http://localhost:5000/inCarts/${id}`, {
     method: "DELETE",
-  });
+  }).then(
+    handleErrors
+  ).then()
   console.log("deleted");
 };
 

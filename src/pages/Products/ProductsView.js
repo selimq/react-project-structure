@@ -12,8 +12,6 @@ import Product from './components/Product'
 const ProductsView = () => {
     let { path, url } = useRouteMatch();
 
-
-
     return (
         <div className="main">
 
@@ -40,8 +38,8 @@ const ProductsView = () => {
                                         <Link to={`${url}/${value.id}`} onClick={() => {
                                             console.log(value.photoUrl)
                                         }}>
-                                            <Paper elevation={10} className="main-paper" >
-                                                <img src={value.photoUrl} alt={value.name} className="my-img" />
+                                            <Paper elevation={10} >
+                                                <img src={value.photoUrl} alt={value.name} />
                                                 <h3>{value.name}</h3>
                                             </Paper>
                                         </Link>
