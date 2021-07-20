@@ -1,53 +1,81 @@
-import {
-    React,
-    useState
-} from 'react'
-import PropTypes from 'prop-types'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-import { Link } from 'react-router-dom';
-import routes from './navigation/routes'
-const Page1View = props => {
-    const [currentTab, setCurrentTab] = useState('')
+import { React, useState } from "react";
+import PropTypes from "prop-types";
+import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import IconButton from "@material-ui/core/IconButton";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
+import MenuIcon from "@material-ui/icons/Menu";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 
-    return (
-        <div className="main">
+const Page1View = (props) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-            <List className="main-list" >
-                {routes.map((route, index) => (
-                    <ListItem button key={route.name} onClick={() => {
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
-                    }}>
-                        <ListItemIcon> <HourglassEmptyIcon /></ListItemIcon>
-                        <ListItemText primary={route.name} />
-                    </ListItem>
-                ))}
-            </List>
-            <ul >
-                {routes.map((module) => (
-                    <li
-                        key={module.name}
-                        className={currentTab === module.name ? "active" : ""}
-                    >
-                        <Link
-                            to={module.routeProps.path}
-                            onClick={() => setCurrentTab(module.name)}
-                        >
-                            {module.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
+  const drawer = (
+    <div className="w-52 flex-shrink-0  ">
+      <div className="" />
+      <Divider />
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+
+    </div>
+  );
+
+
+  return (
+    <div>
+      <IconButton
+        className="xs:visible sm:invisible md:invisible lg:invisible"
+        color="inherit"
+        aria-label="open drawer"
+        edge="start"
+        onClick={handleDrawerToggle}
+      >
+        <MenuIcon />
+      </IconButton>
+      <p className=" sm:invisible  text-2xl ">Responsive drawer</p>
+      <nav>
+        <Hidden mdUp>
+          <Drawer
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown >
+          <Drawer variant="permanent" open>
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
+    </div>
+  );
+};
 
 Page1View.propTypes = {
-    title: PropTypes.string.isRequired
-}
+  title: PropTypes.string.isRequired,
+  window: PropTypes.func,
+};
 
-export default Page1View
-
+export default Page1View;
