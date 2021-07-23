@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .App {
   text-align: center;
 }
 body {
-  background-image: url('./assets/pictures/wallpaper.jpg');
+  background-image: url("./assets/pictures/wallpaper.jpg");
   background-size: contain;
-  font-family: 'Josefin Sans', cursive;
+  font-family: "Josefin Sans", cursive;
 }

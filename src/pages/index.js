@@ -1,11 +1,14 @@
-import Page1 from './Page1'
 import Products from './Products'
+import Categories from './Categories'
 import Cart from './Cart'
-
+import Home from './Home'
+import NotFound from 'navigation/NotFound'
 const Pages = [
-    Page1,
+    Home,
+    Categories,
     Products,
-    Cart
+    Cart,
+    { path: '*', element: <NotFound /> }
 ]
 
 export default Pages

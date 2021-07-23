@@ -11,8 +11,17 @@ import {
 } from "./services/service";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import { PAYMENT } from '../../navigation/CONSTANTS'
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const CartView = () => {
+
+  let location = useLocation()
+  let navigate = useNavigate();
+
+
+
+
   const [inCarts, setCart] = useState([]);
 
   useEffect(() => {
@@ -126,18 +135,18 @@ const CartView = () => {
         </Grid>
         {/* total */}
         <Grid item xs={12} sm={4}>
-          <Container className="bg-blue-100  rounded-2xl  ">
+          <Container className="bg-blue-100 rounded-2xl  ">
             {inCarts.map((element) => {
               return (
-                <div>
+                <div key={element.id}>
                   <Grid container>
-                    <Grid item xs={18} sm={6}>
+                    <Grid item xs={12} sm={6}>
                       <p className=" text-left">{element.name}</p>
                     </Grid>
-                    <Grid item xs={18} sm={3}>
+                    <Grid item xs={12} sm={3}>
                       <p className="">x {element.quantity}</p>
                     </Grid>
-                    <Grid item xs={18} sm={3}>
+                    <Grid item xs={12} sm={3}>
                       <p className=""> = {element.quantity * element.price}</p>
                     </Grid>
                   </Grid>
@@ -155,6 +164,7 @@ const CartView = () => {
 
             <div className="p-5">
               <Button
+                onClick={() => navigate(`${location.pathname}${PAYMENT}`)}
                 variant="contained"
                 style={{ backgroundColor: "#04151f", color: "white" }}
               >

@@ -1,7 +1,7 @@
 
-import flower5 from '../../assets/pictures/flowers/flower5.jpg'
-import flower1 from '../../assets/pictures/flowers/flower1.jpg'
-import flower2 from '../../assets/pictures/flowers/flower2.jpg'
+import kırmızıGüllerVePapatya from '../../assets/pictures/flowers/gül/kırmızıGüllerVePapatya.jpg'
+import karışıkGüller from '../../assets/pictures/flowers/gül/karışıkGüller.jpg'
+import beyazGül from '../../assets/pictures/flowers/gül/beyazGül.jpg'
 import flower3 from '../../assets/pictures/flowers/flower3.jpg'
 import flower4 from '../../assets/pictures/flowers/flower4.jpg'
 
@@ -9,7 +9,7 @@ const products =
     [
         {
             id: 1,
-            photoUrl: flower1,
+            photoUrl: kırmızıGüllerVePapatya,
             name: "Kırmızı Güller ve Papatya",
             stock: 12,
             price: 25,
@@ -18,7 +18,7 @@ const products =
         },
         {
             id: 2,
-            photoUrl: flower2,
+            photoUrl: karışıkGüller,
             name: "Karışık Güller",
             stock: 8,
             price: 18,
@@ -44,7 +44,7 @@ const products =
         },
         {
             id: 5,
-            photoUrl: flower5,
+            photoUrl: beyazGül,
             name: "Beyaz Gül",
             stock: 20,
             price: 15,
